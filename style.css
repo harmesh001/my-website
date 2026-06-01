@@ -107,7 +107,7 @@ button{
   font-size:30px;
   font-weight:bold;
   white-space:nowrap;
-  animation:run 20s linear infinite;
+  animation:run 15s linear infinite;
 }
 
 @keyframes run{
@@ -118,4 +118,17 @@ button{
   to{
      transform:translateX(-100%);
   } 
+}
+
+#topBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  padding:10px 15px;
+  font-size:20px;
+  border:none;
+  border-radius:50%;
+  cursor:pointer;
+
+  z-index:9999;
 }
