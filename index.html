@@ -1,0 +1,204 @@
+<html>
+<head>
+  <title>My Stylish Page</title>
+
+   <link rel="stylesheet" href="style.css"> 
+</head>
+
+<body>
+<input type="text"id="searchbox" placeholder="Search Friend">
+
+<button onclick="searchFriend()">Search</button>
+
+<script>
+function searchFriend(){
+   var name =document.getElementById("searchbox").value;
+
+   alert("Searching for:"+name);
+}
+</script>
+ <a href="#">Home</a>
+ <a href="#">About</a>
+ <a href="#">Friends</a>
+ <a href="#">Contact</a>
+</div>
+
+  <!--Header-->
+  <div class="header">
+     <h1>Harmesh Rajput</h1>
+     <p>Student|Coder|JNV Farrukhabad</p>
+     <img src="IMG_20260114_181029_509.webp" width="200">
+  </div>
+
+
+<p id="clock"></p>
+
+<script>
+
+function updateClock() {
+   let now = new Date();
+   document.getElementById("clock").innerHTML=
+     now.toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+</script>
+
+  <!--Main Content-->
+  <div style="padding:10px;">
+
+    <!--Subjects Card-->
+    <div class="card">
+      <h2 style="color:blue;">My Subjects</h2> 
+      <ol>
+        <li>Maths</li>
+        <li>Science</li>
+        <li>English</li>
+        <li>Hindi</li>
+        <li>Social Science</li>
+        <li>information Technology</li>
+      </ol>
+    </div>
+
+    <!--Skills Card-->
+    <div class="card">
+      <h2 style="color:green;">My Skills</h2> 
+      <ul>
+        <li>Coding</li>
+        <li>Cricket</li>
+        <li>Riding</li>
+      </ul>
+    </div>
+
+   <!--Progress Card-->
+    <div class="card">
+      <h2 style="color:red;">Skills Progress Bar</h2> 
+    <p>HTML-80%,</p>
+    <progress value="80" max="100"></progress>
+
+    <p>CSS-75%,</p>
+    <progress value="75" max="100"></progress>
+
+    <p>JavaScript-50%,</p>
+    <progress value="50" max="100"></progress>
+
+    </div>
+   <div class="card">
+     <h2>About Me</h2>
+     <p>
+       Hello! My name is Harmesh Rajput.
+       I am a student of JNV Farrukhbad and I am learning Web Development.I am a hardworking and curious who enjoys learning new things, especially science and technology.
+
+
+Apart from studies, I am interested in coding and web development. I like improving my skills by creating different projects and learning new technologies.
+     </p>
+   </div>
+
+    <!--Contact Card-->
+    <div class="card">
+      <h2 style="color:blue;">My Contact</h2>
+
+      <p>Email:harmeshrajput220@gmail.com</p>
+      <p>Phone:7317532316</p>
+    </div>
+
+    <!--Table Card-->
+    <div class="card">
+      <h2 style="color:red;">My Friends Name</h2>
+      <table style="width:100%;border-collapse;">
+        <tr style="background-color:black;color:white;">
+          <th style="padding:10px;">Name</th>
+          <th style="padding:10px;">Class</th>
+          <th style="padding:10px;">Roll No.</th>
+          <th style="padding:10px;">Ages</th>
+        </tr>
+
+        </tr>
+           <td style="padding:10px;">Harmesh Rajput</td>
+           <td style="padding:10px;">10</td>
+           <td style="padding:10px;">22</td>
+           <td style="padding:10px;">17</td>
+        </tr>
+
+        </tr>
+           <td style="padding:10px;">Aryan Shukla</td>
+           <td style="padding:10px;">10</td>
+           <td style="padding:10px;">36</td>
+           <td style="padding:10px;">16</td>
+        </tr>
+
+        </tr>
+          <td style="padding:10px;">Priyek Yadav</td>
+          <td style="padding:10px;">10</td>
+          <td style="padding:10px;">25</td>
+          <td style="padding:10px;">17</td>
+        </tr>
+      </table>
+    
+      </div>
+    <div class="card">
+    <h2 style="color:blue;">Quote of the Day</h2> 
+   <p id="quote"></p> 
+    
+<script>
+var quotes=[
+ "Never give up!🚀",
+ "Practice makes perfect.",
+ "Dream big and work hard.",
+ "Success comes from consistency.",
+ "Be calm and let the storm pass, you will see how strong you had become.",
+ "Don`t get attached to anything anything anything...If you master this life will be cool.",
+ "Be so grounded in yourself that love never really leaves you.",
+ "Never let fuck your day anyone it`s your day fuck it by yourself.",
+];
+
+var random=Math.floor(Math.random()*quotes.length);
+
+document.getElementById("quote").innerHTML=
+quotes[random];
+</script>
+
+</div>
+
+<div class="card">
+
+  <h2>Contact Form💌</h2>
+
+  <input type="text" id="name" placeholder="Enter Your Name">
+
+  <br><br>
+
+  <input type="text" id="message" placeholder="Enter Message">
+
+  <br><br>
+
+  <button onclick="sendMessage()">Submit</button>
+
+  <p id="result"></p>
+
+</div>
+
+<script>
+
+function sendMessage(){
+   var name =
+   document.getElementById("name").value;
+
+   var message =
+   document.getElementById("message").value;
+
+   document.getElementById("result").innerHTML=
+   "Thank You "+name+ 
+    "!Your message is: "+message;
+}
+ </script>
+
+</div>
+
+<div class="footer">
+      <p>© 2026 Harmesh Rajput|All Rights Reserved</p>
+
+     </div>
+
+
+</body>
+</html>
