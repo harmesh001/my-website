@@ -102,3 +102,20 @@ input{
 button{
   padding:10px 20px;
 }
+
+.running-text{
+  font-size:30px;
+  font-weight:bold;
+  white-space:nowrap;
+  animation:run 20s linear infinite;
+}
+
+@keyframes run{
+  from{
+    transform:translateX(100%);
+  }
+
+  to{
+     transform:translateX(-100%);
+  } 
+}
