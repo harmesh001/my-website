@@ -132,3 +132,7 @@ button{
 
   z-index:9999;
 }
+
+@media screen and (max-width:600px){
+  table,.navbar{width:100%;font-size:14px;}
+}
