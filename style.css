@@ -136,3 +136,12 @@ button{
 @media screen and (max-width:600px){
   table,.navbar{width:100%;font-size:14px;}
 }
+
+.telegram-btn{
+  background-color:#0088cc;
+  color:white;
+  padding:10px 15px;
+  text-decoration:none;
+  border-radius:5px;
+  font-weight:bold;
+}
