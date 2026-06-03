@@ -60,9 +60,27 @@ function updateClock() {
 setInterval(updateClock,1000);
 </script>
 
-<div class="running-text">
-  Harmesh Rajput Welcomes You😎..Thank You for visiting Website
-</div>
+<h2 id="typing"</h2>
+ 
+<script>
+var text=" Harmesh Rajput Welcomes You😎..Thank You for visiting Website";
+vat i=0;
+
+function typeWriter(){
+
+  if(i<text.length){
+
+    document.getElementById("typing").innerHTML+=
+text.charAt(i);
+
+    i++;
+    setTimeout(typeWriter,100);
+  }
+}
+
+typeWriter();
+
+</script>  
 
   <!--Main Content-->
   <div style="padding:10px;">
