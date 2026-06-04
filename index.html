@@ -10,6 +10,8 @@ initial-scale=1.0">
     <link rel="stylesheet"href="style.css">
 </head>
 
+<body>
+
 <script>
 function topFunction(){
   window.scrollTo({
@@ -19,11 +21,15 @@ function topFunction(){
 }
 </script>
 
+
+
 <button id="topBtn" onclick="topFunction()">⬆</button>
 
 <input type="text"id="searchbox" placeholder="Search Friend">
 
 <button onclick="searchFriend()">Search</button>
+
+<button id="modeBtn"onclick="toggleMode()">🌙Dark Mode</button>
 
 <script>
 function searchFriend(){
@@ -31,6 +37,24 @@ function searchFriend(){
 
    alert("Searching for:"+name);
 }
+</script>
+
+<script>
+function toggleMode(){
+  document.body.classList.toggle("dark-mode");
+
+  let btn=document.getElementById("modeBtn");
+
+  if(document.body.classList.contains("dark-mode")){
+    btn.innerHTML="☀Light Mode";
+  } else {
+    btn.innerHTML="🌙Dark Mode";
+  }
+}
+
+</script>
+
+
 </script>
  <a href="#">Home</a>
  <a href="#">About</a>
@@ -45,29 +69,37 @@ function searchFriend(){
      <img src="IMG_20260114_181029_509.webp" width="200">
   </div>
 
+    
+    <div id="datetime"></div>
 
-<p id="clock"></p>
-
-<script>
-
-function updateClock() {
-   let now = new Date();
-   document.getElementById("clock").innerHTML=
-     now.toLocaleTimeString();
-}
-setInterval(updateClock,1000);
-</script> 
+    <script>
+    function updateDateTime(){
+        var now = new Date();
+        
+        var dateOptions = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        };
+        var timeOptions = { 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit' 
+        };
+        
+        var dateStr = now.toLocaleDateString('en-IN', dateOptions);
+        var timeStr = now.toLocaleTimeString('en-IN', timeOptions);
+        
+        document.getElementById("datetime").innerHTML = 
+        `<span class="date">${dateStr}</span><span class="separator"> | </span><span class="time">${timeStr}</span>`;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+    </script>
 
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-content="width=device-width,
-initial-scale=1.0">
-  <title>Harmesh Rajput Welcomes You Thank You For Visiting Website🤍</title>
-  <link rel="stylesheet"href="css/
-style.css">
-</head>
+
 <body>
   <div class="welcome-bar">
     <div class="welcome-text">Harmesh Rajput Welcomes You Thank You For Visiting Website!</div>
@@ -150,21 +182,21 @@ Apart from studies, I am interested in coding and web development. I like improv
         </tr>
 
         </tr>
-           <td style="padding:10px;">Aryan Shukla</td>
+           <td style="padding:10px;">BERLIN</td>
            <td style="padding:10px;">10</td>
            <td style="padding:10px;">22</td>
            <td style="padding:10px;">17</td>
         </tr>
 
         </tr>
-           <td style="padding:10px;">Jaykishan</td>
+           <td style="padding:10px;">PETER</td>
            <td style="padding:10px;">10</td>
            <td style="padding:10px;">36</td>
            <td style="padding:10px;">16</td>
         </tr>
 
         </tr>
-          <td style="padding:10px;">Abhishek</td>
+          <td style="padding:10px;">ANDERSON</td>
           <td style="padding:10px;">10</td>
           <td style="padding:10px;">25</td>
           <td style="padding:10px;">17</td>
@@ -178,10 +210,11 @@ Apart from studies, I am interested in coding and web development. I like improv
     
 <script>
 var quotes=[
- "Never give up!🚀",
- "Practice makes perfect.",
- "Dream big and work hard.",
- "Success comes from consistency.",
+  "Be grateful you slipped through the hands of those who didn't know how to hold you",
+ "Even the sky won't be the same every day so how to expect from people to be!",
+ "Time doesn't stop,only people do. Love doesn't leave,only lovers do.",
+ "Let them go but,keep them in your heart forever 🫠",
+ "this too shall pass and hope love never finds me again",
  "Be calm and let the storm pass, you will see how strong you had become.",
  "Don`t get attached to anything anything anything...If you master this life will be cool.",
  "Be so grounded in yourself that love never really leaves you.",
