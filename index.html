@@ -165,7 +165,7 @@ My Class 10th Result:
         Telegram Channel:
         <a href="https://t.me/the_xeronx"target="_blank"
         class="telegram-btn">
-          Join My Telegram Channel❤
+          Join My Telegram Channel
         </a>
      </p>
     </div>
@@ -228,46 +228,161 @@ quotes[random];
 
 </div>
 
-<div class="card">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Car Racing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-info">
+            <h1>2D Car Racing</h1>
+            <p>Score: <span id="score">0</span></p>
+        </div>
+        
+        <div class="game-area" id="gameArea">
+            <div class="game-player-car" id="playerCar"></div>
+            <div class="game-road">
+                <div class="game-road-line"></div>
+                <div class="game-road-line"></div>
+                <div class="game-road-line"></div>
+            </div>
+        </div>
+        
+        <div class="game-controls">
+            <p>Use ⬅️ and ➡️ arrow keys to move</p>
+            <button id="startBtn">Start Game</button>
+        </div>
+    </div>
 
-  <h2>Contact Form💌</h2>
-
-  <input type="text" id="name" placeholder="Enter Your Name">
-
-  <br><br>
-
-  <input type="text" id="message" placeholder="Enter Message">
-
-  <br><br>
-
-  <button onclick="sendMessage()">Submit</button>
-
-  <p id="result"></p>
-
-</div>
-
-<script>
-
-function sendMessage(){
-   var name =
-   document.getElementById("name").value;
-
-   var message =
-   document.getElementById("message").value;
-
-   document.getElementById("result").innerHTML=
-   "Thank You "+name+ 
-    "!Your message is: "+message;
-}
- </script>
+    <script>
+        const gameArea = document.getElementById('gameArea');
+        const playerCar = document.getElementById('playerCar');
+        const scoreDisplay = document.getElementById('score');
+        const startBtn = document.getElementById('startBtn');
+        
+        let playerPosition = 50;
+        let score = 0;
+        let gameRunning = false;
+        let obstacles = [];
+        let gameSpeed = 5;
+        let animationId;
+        
+        playerCar.style.left = playerPosition + '%';
+        
+        document.addEventListener('keydown', (e) => {
+            if (!gameRunning) return;
+            
+            if (e.key === 'ArrowLeft' && playerPosition > 10) {
+                playerPosition -= 8;
+                playerCar.style.left = playerPosition + '%';
+            }
+            if (e.key === 'ArrowRight' && playerPosition < 90) {
+                playerPosition += 8;
+                playerCar.style.left = playerPosition + '%';
+            }
+        });
+        
+        startBtn.addEventListener('click', startGame);
+        
+        function startGame() {
+            if (gameRunning) return;
+            
+            gameRunning = true;
+            score = 0;
+            gameSpeed = 5;
+            obstacles = [];
+            scoreDisplay.textContent = score;
+            startBtn.textContent = 'Playing...';
+            
+            document.querySelectorAll('.game-obstacle').forEach(obs => obs.remove());
+            
+            animationId = requestAnimationFrame(gameLoop);
+        }
+        
+        function gameLoop() {
+            if (!gameRunning) return;
+            
+            score++;
+            scoreDisplay.textContent = score;
+            
+            if (score % 500 === 0) {
+                gameSpeed += 0.5;
+            }
+            
+            if (Math.random() < 0.02) {
+                createObstacle();
+            }
+            
+            moveObstacles();
+            checkCollision();
+            
+            animationId = requestAnimationFrame(gameLoop);
+        }
+        
+        function createObstacle() {
+            const obstacle = document.createElement('div');
+            obstacle.className = 'game-obstacle';
+            obstacle.style.left = Math.random() * 80 + 10 + '%';
+            obstacle.style.top = '-100px';
+            gameArea.appendChild(obstacle);
+            
+            obstacles.push({
+                element: obstacle,
+                top: -100,
+                left: Math.random() * 80 + 10
+            });
+        }
+        
+        function moveObstacles() {
+            obstacles.forEach((obs, index) => {
+                obs.top += gameSpeed;
+                obs.element.style.top = obs.top + 'px';
+                
+                if (obs.top > gameArea.offsetHeight) {
+                    obs.element.remove();
+                    obstacles.splice(index, 1);
+                }
+            });
+        }
+        
+        function checkCollision() {
+            const playerRect = playerCar.getBoundingClientRect();
+            
+            obstacles.forEach(obs => {
+                const obstacleRect = obs.element.getBoundingClientRect();
+                
+                if (playerRect.left < obstacleRect.right &&
+                    playerRect.right > obstacleRect.left &&
+                    playerRect.top < obstacleRect.bottom &&
+                    playerRect.bottom > obstacleRect.top) {
+                    
+                    gameOver();
+                }
+            });
+        }
+        
+        function gameOver() {
+            gameRunning = false;
+            cancelAnimationFrame(animationId);
+            startBtn.textContent = 'Start Game';
+            startBtn.style.display = 'block';
+            
+            alert('Game Over! Your score: ' + score);
+            
+            document.querySelectorAll('.game-obstacle').forEach(obs => obs.remove());
+            obstacles = [];
+        }
+    </script>
 
 </div>
 
 <div class="footer">
-      <p>© 2026 Harmesh Rajput|All Rights Reserved|Made With Using HTML❤ </p>
-
-     </div>
-
+    <p>© 2026 Harmesh Rajput | All Rights Reserved</p>
+</div>
 
 </body>
 </html>
