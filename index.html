@@ -230,6 +230,8 @@ quotes[random];
 
 <canvas id="gameCanvas" width="400" height="600"></canvas>
 
+<button id="startBtn">START GAME</button>
+
 <div style="text-align:center; margin-top:10px;">
     <button id="leftBtn">⬅️</button>
     <button id="rightBtn">➡️</button>
@@ -451,6 +453,12 @@ document.getElementById("rightBtn").onclick = () => {
         car.x = lanes[currentLane];
     }
 };
+
+document.getElementById("startBtn").addEventListener("click", () => {
+    gameStarted = true;
+    document.getElementById("startBtn").style.display = "none";
+});
+
 
 function drawRoad() {
     ctx.fillStyle = "gray";
