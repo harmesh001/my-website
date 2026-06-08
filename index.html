@@ -232,6 +232,10 @@ quotes[random];
 
 <button id="startBtn">START GAME</button>
 
+<button id="restartBtn" style="display:none;">
+    RESTART GAME
+</button>
+
 <div style="text-align:center; margin-top:10px;">
     <button id="leftBtn">⬅️</button>
     <button id="rightBtn">➡️</button>
@@ -459,6 +463,9 @@ document.getElementById("startBtn").addEventListener("click", () => {
     document.getElementById("startBtn").style.display = "none";
 });
 
+document.getElementById("restartBtn").addEventListener("click", () => {
+    location.reload();
+});
 
 function drawRoad() {
     ctx.fillStyle = "gray";
@@ -503,6 +510,16 @@ if (!gameStarted) {
     ctx.fillText("Press SPACE to Start", 40, 300);
 
     requestAnimationFrame(gameLoop);
+    return;
+}
+
+if (gameOver) {
+    document.getElementById("restartBtn").style.display = "block";
+
+    ctx.fillStyle = "red";
+    ctx.font = "40px Arial";
+    ctx.fillText("GAME OVER", 80, 250);
+
     return;
 }
 
